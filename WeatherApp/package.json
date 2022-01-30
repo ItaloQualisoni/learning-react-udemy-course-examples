@@ -1,7 +1,7 @@
 {
-  "name": "boilerplate",
+  "name": "weatherapp",
   "version": "1.0.0",
-  "description": "udemy course - simple boilerplate react app",
+  "description": "udemy course - simple wather app react app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,7 +14,9 @@
   "dependencies": {
     "express": "^4.17.2",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-router": "^6.2.1",
+    "react-router-dom": "^6.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.16.12",
