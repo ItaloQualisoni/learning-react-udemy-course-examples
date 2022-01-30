@@ -1,6 +1,6 @@
 import GreeterMessage from 'GreeterMessage'
-import GreeterForm from 'GreeterForm'
-import React from "react";
+import React from 'react';
+import GreeterForm from './GreeterForm';
 
 class Greeter extends React.Component {
     constructor(props){
