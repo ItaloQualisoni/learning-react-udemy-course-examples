@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link as NavLink } from 'react-router-dom';
 
 export default class Nav extends Component {
   constructor(props){
@@ -7,13 +7,14 @@ export default class Nav extends Component {
   }
   render() {
     return (
-      <div>
+      <React.Fragment>
         <h2>Nav Component</h2>
-        <nav>
-          <Link to="/">Get Weather</Link>
-          <Link to="/about">About</Link>
-        </nav>
-      </div>
+        <NavLink to="/" >Get Weather</NavLink>
+        <br/>
+        <NavLink className={({ isActive }) => "nav-link" + (isActive ? "active" : "")} to='/about'>About'</NavLink>
+        <br/>
+        <NavLink to="examples" className="active" style={{fontWeight: 'bold'}}>Examples</NavLink>
+      </React.Fragment>
     );
   }
 }

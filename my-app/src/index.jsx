@@ -17,5 +17,5 @@ ReactDOM.render(
             </Route>
         </Routes>
     </Router>,
-    document.getElementById('app')
+    document.getElementById('root')
 )
