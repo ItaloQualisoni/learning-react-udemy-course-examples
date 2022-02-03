@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
-import { Link as NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default class Nav extends Component {
   constructor(props){
     super(props);
   }
   render() {
+    const activeStyle = {
+        fontWeight: 'bold'
+
+    }
+
     return (
       <React.Fragment>
         <h2>Nav Component</h2>
-        <NavLink to="/" >Get Weather</NavLink>
+        <NavLink to="/" style={({ isActive }) => isActive ? activeStyle : undefined} >Get Weather</NavLink>
         <br/>
-        <NavLink className={({ isActive }) => "nav-link" + (isActive ? "active" : "")} to='/about'>About'</NavLink>
+        <NavLink to='/about' style={({ isActive }) => isActive ? activeStyle : undefined} >About</NavLink>
         <br/>
-        <NavLink to="examples" className="active" style={{fontWeight: 'bold'}}>Examples</NavLink>
+        <NavLink to="examples" style={({ isActive }) => isActive ? activeStyle : undefined} >Examples</NavLink>
       </React.Fragment>
     );
   }
