@@ -1,29 +1,33 @@
 import React, { Component } from 'react';
 import WeatherForm from './WeatherForm';
-import WeatherMessage from './WeatherMessage';
+import { WeatherFormFunction } from './WeatherFormFunction';
+import WeatherMessage, { WeatherMessageFunction } from './WeatherMessage';
 
 export default class Weather extends Component {
   constructor(props){
     super(props);
     this.state = {
-      newWeather: undefined
+      weather: undefined
     };
     this.handleNewWeather = this.handleNewWeather.bind(this);
   }
 
   handleNewWeather(newWeather){
     this.setState({
-      newWeather:newWeather
+      weather:newWeather
     })
   }
 
   render() {
     return (
-      <React.Fragment>
+      <>
         <div>Weather Component</div>
-        <WeatherForm handleNewWeather={this.handleNewWeather} />
-        <WeatherMessage  weather={this.state.newWeather} />
-      </React.Fragment>
+        <WeatherForm onNewWeather={this.handleNewWeather} />
+        <WeatherMessage  weather={this.state.weather} />
+        <br/>
+        <WeatherFormFunction onNewWeather={this.handleNewWeather} />
+        <WeatherMessageFunction  weather={this.state.weather} />
+      </>
     );
   }
 }
