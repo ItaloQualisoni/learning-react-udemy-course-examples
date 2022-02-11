@@ -12,7 +12,7 @@ export default class WeatherForm extends Component {
     var newLocationValue = this.locationRef.current.value
     if(newLocationValue){
       this.locationRef.current.value = '';
-      this.props.onNewWeather(newLocationValue)
+      this.props.onNewLocation(newLocationValue)
     }
     else{
       alert('value should not be empty')

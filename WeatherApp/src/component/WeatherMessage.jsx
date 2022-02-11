@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 
 export default class WeatherMessage extends Component {
   constructor(props){
@@ -6,20 +8,30 @@ export default class WeatherMessage extends Component {
   }
 
   render() {
+    var {location,temp} = this.props;
+
     return (
-      this.props.weather !== undefined ?
-       <div>Weather in {this.props.weather} is 26 celsius</div>: 
-       <div>No weather selected</div>
+      location !== undefined ?
+        <div>Weather in {location} is {temp} celsius</div>: 
+        <div>No Location selected</div>
     );
   }
 }
+WeatherMessage.propTypes = {
+  location: PropTypes.string.isRequired,
+  temp:PropTypes.number.isRequired
+}
 
-export function WeatherMessageFunction({weather}){
+export function WeatherMessageFunction({location,temp}){
   return (
-      weather !== undefined ?
-       <div>Weather in {weather} is 26 celsius</div>: 
-       <div>No weather selected</div>
+      location !== undefined ?
+        <div>Weather in {location} is {temp} celsius</div>: 
+        <div>No Location selected</div>
     );
+}
+WeatherMessageFunction.propTypes = {
+  location: PropTypes.string.isRequired,
+  temp:PropTypes.number.isRequired
 }
 
 

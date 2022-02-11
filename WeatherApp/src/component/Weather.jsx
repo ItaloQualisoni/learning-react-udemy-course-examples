@@ -1,32 +1,41 @@
 import React, { Component } from 'react';
-import WeatherForm from './WeatherForm';
 import { WeatherFormFunction } from './WeatherFormFunction';
-import WeatherMessage, { WeatherMessageFunction } from './WeatherMessage';
+import { WeatherMessageFunction } from './WeatherMessage';
 
 export default class Weather extends Component {
   constructor(props){
     super(props);
     this.state = {
-      weather: undefined
+      location: 'Porto Alegre',
+      temp:  Math.random()  * (50 - 30) + (30),
+      isLoading: false
     };
-    this.handleNewWeather = this.handleNewWeather.bind(this);
+    this.handleNewLocation = this.handleNewLocation.bind(this);
   }
 
-  handleNewWeather(newWeather){
+  handleNewLocation(newLocation){
+    
     this.setState({
-      weather:newWeather
+      isLoading:true
     })
+
+    setTimeout(()=>{
+      this.setState({
+        location: newLocation,
+        temp: Math.random()  * (50 - 30) + (30),
+        isLoading:false
+      })
+    },5000)
+    
   }
 
   render() {
+    var {location, temp, isLoading} = this.state;
+    var fetchingMessage = 'Fetching the data'
     return (
       <>
-        <div>Weather Component</div>
-        <WeatherForm onNewWeather={this.handleNewWeather} />
-        <WeatherMessage  weather={this.state.weather} />
-        <br/>
-        <WeatherFormFunction onNewWeather={this.handleNewWeather} />
-        <WeatherMessageFunction  weather={this.state.weather} />
+        <WeatherFormFunction onNewLocation={this.handleNewLocation} />
+        { isLoading ? <h3>{fetchingMessage}</h3> : <WeatherMessageFunction location={location} temp ={temp}/>}
       </>
     );
   }

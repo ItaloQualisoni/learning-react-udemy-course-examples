@@ -1,13 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
+import PropTypes from 'prop-types';
 
-export function WeatherFormFunction ({onNewWeather}){
+export function WeatherFormFunction ({onNewLocation}){
   var cityRef = useRef(null);
 
   function onFormSubmit(event){
     event.preventDefault()
     const newCityValue = cityRef.current.value
     if(newCityValue)
-    onNewWeather(newCityValue)
+    onNewLocation(newCityValue)
     else{
       alert('value should not be empty')
     }    
@@ -23,4 +24,7 @@ export function WeatherFormFunction ({onNewWeather}){
     </>
   );
   
+}
+WeatherFormFunction.propTypes = {
+  onNewLocation: PropTypes.func.isRequired,
 }

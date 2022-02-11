@@ -6,16 +6,17 @@ import Main from './component/Main'
 import Weather from './component/Weather';
 import About from './component/About';
 import Examples from './component/Examples';
+import 'foundation-sites/dist/css/foundation.min.css';
 
 ReactDOM.render(
-    <Router >
-        <Routes>
-            <Route path="/" element={<Main/>}>
-                <Route index element={<Weather />} />
-                <Route path="about" element={<About />} />
-                <Route path="examples" element={<Examples />} />
-            </Route>
-        </Routes>
-    </Router>,
+  <Router >
+    <Routes>
+      <Route path="/" element={<Main/>}>
+        <Route index element={<Weather />} />
+        <Route path="about" element={<About />} />
+        <Route path="examples" element={<Examples />} />
+      </Route>
+    </Routes>
+  </Router>,
     document.getElementById('app')
 )
